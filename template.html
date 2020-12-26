@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" href="https://fonts.gstatic.com/s/longcang/v5/LYjAdGP8kkgoTec8zkRgqHAtXN-dRp6ohF_hzzTtOcBgYoCKmPpHHEBiM6LIGv3EnKLjtw.119.woff2" as="font" crossorigin="anonymous"/> 
+    <link rel="preload" href="https://fonts.gstatic.com/s/longcang/v5/LYjAdGP8kkgoTec8zkRgqHAtXN-dRp6ohF_hzzTtOcBgYoCKmPpHHEBiM6LIGv3EnKLjtw.118.woff2" as="font" crossorigin="anonymous"/> 
+    <link rel="preload" href="https://fonts.gstatic.com/s/longcang/v5/LYjAdGP8kkgoTec8zkRgqHAtXN-dRp6ohF_hzzTtOcBgYoCKmPpHHEBiM6LIGv3EnKLjtw.116.woff2" as="font" crossorigin="anonymous"/> 
+    
+    <!-- <link rel="prefetch" href="https://fonts.gstatic.com/s/longcang/v5/LYjAdGP8kkgoTec8zkRgqHAtXN-dRp6ohF_hzzTtOcBgYoCKmPpHHEBiM6LIGv3EnKLjtw.113.woff2" as="font"/> 
+    <link rel="prefetch" href="https://fonts.gstatic.com/s/longcang/v5/LYjAdGP8kkgoTec8zkRgqHAtXN-dRp6ohF_hzzTtOcBgYoCKmPpHHEBiM6LIGv3EnKLjtw.118.woff2" as="font"/> 
+    <link rel="prefetch" href="https://fonts.gstatic.com/s/longcang/v5/LYjAdGP8kkgoTec8zkRgqHAtXN-dRp6ohF_hzzTtOcBgYoCKmPpHHEBiM6LIGv3EnKLjtw.117.woff2" as="font"/> 
+     -->
+    <!-- <link rel="dns-prefetch" href="https://ss1.bdstatic.com" />
+    <link rel="dns-prefetch" href="https://ss0.bdstatic.com" />
+    <link rel="dns-prefetch" href="https://timgsa.baidu.com" />
+    <link rel="dns-prefetch" href="https://ss2.bdstatic.com" /> -->
+    <!--引入工具库-->
+    <style>
+      body {
+        margin: 0;
+      }
+      #loadding {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+      #loadding > span {
+        display: inline-block;
+        width: 8px;
+        height: 100%;
+        margin-right: 5px;
+        border-radius: 4px;
+        -webkit-animation: load 1.04s ease infinite;
+        animation: load 1.04s ease infinite;
+      }
+      @keyframes load {
+        0%,100%{
+          height: 40px;
+          background: #98BEFF;
+        }
+        50%{
+          height: 60px;
+          margin-top: -20px;
+          background: #3E7FEE;
+        }
+      }
+    </style>
+    <title>前端性能优化</title>
+  </head>
+  <body>
+    <!-- <img src="./img/index.jpg" sizes="100vw" srcset="./img/me0.jpg 300w, ./img/dog.jpg 800w, ./img/index.jpg 1200w"/> -->
+    <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab4bef4550cf4e40986401df9a76199f~tplv-k3u1fbpfcp-watermark.image" alt="">
+    <div id="loadding">
+      <span></span>
+      <span style="animation-delay:0.13s;"></span>
+      <span style="animation-delay:0.26s;"></span>
+      <span style="animation-delay:0.39s;"></span>
+      <span style="animation-delay:0.52s;"></span>
+    </div>
+    <div id="main">
+    </div>
+    <!-- <script src="/libs/lodash.js"></script> -->
+    <script src="/libs/fastdom.min.js"></script>
+  </body>
+  <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const $loadding = document.getElementById('loadding');
+        if (!$loadding) {
+          return;
+        }
+        $loadding.style.display = 'none';
+        $loadding.parentNode.removeChild($loadding);
+      });
+    // 连续触发页面回流操作
+    // let cards = document.getElementsByTagName("img");
+    // const update = (timestamp) => {
+    //   for (let i = 0; i <cards.length; i++) {
+    //     let top = cards[i].offsetTop;
+    //     cards[i].style.width = ((Math.sin(cards[i].offsetTop + timestamp / 100 + 1) * 500) + 'px')
+    //   }
+    //   window.requestAnimationFrame(update)
+    // }
+
+    // // const update = (timestamp) => {
+    // //   for (let i = 0; i < cards.length; i++) {
+    // //     fastdom.measure(() => {
+    // //       let top = cards[i].offsetTop;
+    // //       fastdom.mutate(() => {
+    // //         cards[i].style.width =
+    // //           Math.sin(top + timestamp / 100 + 1) * 500 + "px";
+    // //       });
+    // //     });
+    // //   }
+    // //   window.requestAnimationFrame(update);
+    // // };
+
+    // update(1000);
+
+    // rAF 处理一些高频事件
+    // let cards = document.getElementsByTagName("img");
+    // const changeWidth = (pos) => {
+    //   for (let i = 0; i <cards.length; i++) {
+    //       cards[i].style.width = ((Math.sin(pos/100) * 500) + 'px')
+    //     }
+    // }
+    
+    // let ticking = false;
+    // window.addEventListener("pointermove", (e) => {
+    //   let pos = e.clientX;
+    //   // if(ticking) return;
+
+    //   // ticking = true;
+    //   // window.requestAnimationFrame(() => {
+    //   //   changeWidth(pos);
+    //   //   ticking = false;
+    //   // })
+    //   // changeWidth(pos)
+    // })
+    
+
+    // let vEvent = "visibilitychange";
+    // if (document.webkitHidden != undefined) {
+    //   vEvent = "webkitvisibilitychange";
+    // }
+
+    // function visibilityChanged() {
+    //   if (document.hidden || document.webkitHidden) {
+    //     document.title = "客官，别走啊~";
+    //     console.log("Web page is hidden.");
+    //   } else {
+    //     document.title = "客官，你又回来了呢~";
+    //     console.log("Web page is visible.");
+    //   }
+    // }
+
+    // document.addEventListener(vEvent, visibilityChanged, false);
+
+    // 观察长任务
+    // const observer = new PerformanceObserver((list) => {
+    //     for (const entry of list.getEntries()) {
+    //         console.log(entry)
+    //     }
+    // })
+
+    // observer.observe({entryTypes: ['longtask']})
+    // 计算DOMContentLoaded时间
+    // window.addEventListener('DOMContentLoaded', (event) => {
+    //     // Time to Interactive
+    //     let timing = performance.getEntriesByType('navigation')[0];
+    //     console.log(timing.domInteractive);
+    //     console.log(timing.fetchStart);
+    //     let diff = timing.domInteractive - timing.fetchStart;
+    //     console.log("TTI: " + diff);
+    // })
+    // 监听网络变化
+    // var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    // var type = connection.effectiveType;
+
+    // function updateConnectionStatus() {
+    //   console.log("Connection type changed from " + type + " to " + connection.effectiveType);
+    //   type = connection.effectiveType;
+    // }
+
+    // connection.addEventListener('change', updateConnectionStatus);
+  </script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      #loadding {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+      #loadding > span {
+        display: inline-block;
+        width: 8px;
+        height: 100%;
+        margin-right: 5px;
+        border-radius: 4px;
+        -webkit-animation: load 1.04s ease infinite;
+        animation: load 1.04s ease infinite;
+      }
+      @keyframes load {
+        0%,
+        100% {
+          height: 40px;
+          background: #98beff;
+        }
+        50% {
+          height: 60px;
+          margin-top: -20px;
+          background: #3e7fee;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="loadding">
+      <span></span>
+      <span style="animation-delay: 0.13s"></span>
+      <span style="animation-delay: 0.26s"></span>
+      <span style="animation-delay: 0.39s"></span>
+      <span style="animation-delay: 0.52s"></span>
+    </div>
+  </body>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const $loadding = document.getElementById("loadding");
+      if (!$loadding) {
+        return;
+      }
+      $loadding.style.display = "none";
+      $loadding.parentNode.removeChild($loadding);
+    });
+  </script>
+</html>
