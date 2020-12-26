@@ -51,13 +51,13 @@
     </div>
   </body>
   <script>
-    window.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("DOMContentLoaded", setTimeout(() => {
       const $loadding = document.getElementById("loadding");
       if (!$loadding) {
         return;
       }
       $loadding.style.display = "none";
       $loadding.parentNode.removeChild($loadding);
-    });
+    }, 2000))
   </script>
 </html>
