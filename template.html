@@ -123,20 +123,20 @@
     // })
     
 
-    // let vEvent = "visibilitychange";
-    // if (document.webkitHidden != undefined) {
-    //   vEvent = "webkitvisibilitychange";
-    // }
+    let vEvent = "visibilitychange";
+    if (document.webkitHidden != undefined) {
+      vEvent = "webkitvisibilitychange";
+    }
 
-    // function visibilityChanged() {
-    //   if (document.hidden || document.webkitHidden) {
-    //     document.title = "客官，别走啊~";
-    //     console.log("Web page is hidden.");
-    //   } else {
-    //     document.title = "客官，你又回来了呢~";
-    //     console.log("Web page is visible.");
-    //   }
-    // }
+    function visibilityChanged() {
+      if (document.hidden || document.webkitHidden) {
+        document.title = "客官，别走啊~";
+        console.log("Web page is hidden.");
+      } else {
+        document.title = "客官，你又回来了呢~";
+        console.log("Web page is visible.");
+      }
+    }
 
     // document.addEventListener(vEvent, visibilityChanged, false);
 
