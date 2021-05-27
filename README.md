@@ -1,6 +1,17 @@
-# 前端性能优化
+## 前端性能优化 - PPT
 
-掘金文章：[拯救你的年底KPI：前端性能优化](https://juejin.cn/post/6911472693405548557)
+[前端性能优化-PPT 在线展示](https://alexwjj.github.io/fe-optimize-ppt)
 
-个人博客文章： [拯救你的年底KPI：前端性能优化](https://alexwjj.github.io/views/fe/others/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc3f5507f5b7415e95ec2c2b62131b22~tplv-k3u1fbpfcp-watermark.image)
+
+## 配套文章（掘金1.3K 👍🏻）
+
+[聊一聊前端性能优化](https://juejin.cn/post/6911472693405548557)
+
+## 配套演示代码
+[在线](https://alexwjj.github.io/fe-optimize-code)
+
+[源码](https://github.com/alexwjj/fe-optimize)
+
+![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ac0b17f19454e15a3ec8d654d7b7ece~tplv-k3u1fbpfcp-watermark.image)
 

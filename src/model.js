@@ -11,7 +11,7 @@ const model = [
     },
     {
         name: '我也不知道',
-        image: `https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592014377244&di=da390556e384c148a63692fee68b6251&imgtype=0&src=http%3A%2F%2Fpic4.zhimg.com%2Fv2-0d4d16b3aa0e23d656bc1a94d7dc7ea7_b.jpg`,
+        image: `https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=94996843,1878572032&fm=26&gp=0.jpg`,
         body: '我会烦你',
     },
     {
